@@ -2,6 +2,7 @@
 #include "linkedlist.h"
 #include "bst.h"
 #include "hashtable.h"
+#include "heap.h"
 
 int main() {
     // Linked List Example
@@ -25,7 +26,13 @@ int main() {
     printf("\nHash Table: \n");
     print_hash_table(hash_table);
 
-
+    // Heap Example
+    MinHeap* heap = create_minheap();
+    insert_heap(heap, 50);
+    insert_heap(heap, 10);
+    insert_heap(heap, 30);
+    printf("\nHeap: ");
+    print_heap(heap);
 
     return 0;
 }
