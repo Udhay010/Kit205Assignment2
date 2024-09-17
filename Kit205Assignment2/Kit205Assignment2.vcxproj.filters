@@ -30,6 +30,12 @@
     <ClCompile Include="heap.c">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="student.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="course.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="linkedList.h">
@@ -42,6 +48,12 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="heap.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="student.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="course.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

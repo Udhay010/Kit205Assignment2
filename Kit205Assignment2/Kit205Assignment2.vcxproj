@@ -128,16 +128,20 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="bst.c" />
+    <ClCompile Include="course.c" />
     <ClCompile Include="hashTable.c" />
     <ClCompile Include="heap.c" />
     <ClCompile Include="Kit205Assignment2.c" />
     <ClCompile Include="linkedList.c" />
+    <ClCompile Include="student.c" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="bst.h" />
+    <ClInclude Include="course.h" />
     <ClInclude Include="hashTable.h" />
     <ClInclude Include="heap.h" />
     <ClInclude Include="linkedList.h" />
+    <ClInclude Include="student.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
