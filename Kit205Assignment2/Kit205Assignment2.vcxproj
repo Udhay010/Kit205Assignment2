@@ -143,6 +143,10 @@
     <ClInclude Include="linkedList.h" />
     <ClInclude Include="student.h" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="courses_data.csv" />
+    <None Include="students_data.csv" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
