@@ -109,6 +109,7 @@ int main() {
     // Test retrieval performance
     test_student_retrieval(student_table, 10000);  // Test retrieval for 10,000 students
     test_course_retrieval(course_root, 100);       // Test retrieval for 100 courses
+    int var = scanf("");
 
     return 0;
 }
