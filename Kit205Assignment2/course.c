@@ -6,7 +6,7 @@
 Course* create_course(int course_id, const char* course_name) {
     Course* new_course = (Course*)malloc(sizeof(Course));
     new_course->course_id = course_id;
-    strcpy(new_course->course_name, course_name);
+    strcpy_s(new_course->course_name, sizeof(new_course->course_name), course_name);  // This is safer
     return new_course;
 }
 

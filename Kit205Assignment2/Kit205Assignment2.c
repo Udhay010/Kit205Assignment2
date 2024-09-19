@@ -22,7 +22,8 @@ void load_students_and_test(const char* filename, HashNode* student_table[]) {
     while (fgets(line, sizeof(line), file)) {
         int student_id;
         char name[50];
-        sscanf(line, "%d,%s", &student_id, name);
+        // Use sscanf_s for safe parsing
+        sscanf_s(line, "%d,%49s", &student_id, name, (unsigned)_countof(name));
 
         // Insert into hash table
         Student* student = create_student(student_id, name);
@@ -32,7 +33,7 @@ void load_students_and_test(const char* filename, HashNode* student_table[]) {
 
     clock_t end = clock();  // End the clock for insertion time
     double time_taken = (double)(end - start) / CLOCKS_PER_SEC;
-    printf("Inserted %d students in %.2f seconds\n", total_students, time_taken);
+    printf("Hash Table: Inserted %d students in %.4f seconds\n", total_students, time_taken);
 
     fclose(file);
 }
@@ -52,16 +53,17 @@ void load_courses_and_test(const char* filename, BSTNode** course_root) {
     while (fgets(line, sizeof(line), file)) {
         int course_id;
         char course_name[50];
-        sscanf(line, "%d,%s", &course_id, course_name);
+        // Use sscanf for safe parsing
+        sscanf_s(line, "%d,%49s", &course_id, course_name, (unsigned)_countof(course_name));
 
         // Insert into BST
-        *course_root = insert_bst(*course_root, course_id);
+        *course_root = insert_bst(*course_root, course_id, course_name); // Updated to handle course_name
         total_courses++;
     }
 
     clock_t end = clock();  // End the clock for insertion time
     double time_taken = (double)(end - start) / CLOCKS_PER_SEC;
-    printf("Inserted %d courses in %.2f seconds\n", total_courses, time_taken);
+    printf("BST: Inserted %d courses in %.4f seconds\n", total_courses, time_taken);
 
     fclose(file);
 }
@@ -79,7 +81,7 @@ void test_student_retrieval(HashNode* student_table[], int num_students) {
 
     clock_t end = clock();  // End the clock for retrieval time
     double time_taken = (double)(end - start) / CLOCKS_PER_SEC;
-    printf("Retrieved %d students in %.2f seconds\n", num_students, time_taken);
+    printf("Hash Table: Retrieved %d students in %.4f seconds\n", num_students, time_taken);
 }
 
 // Function to test retrieval of courses and measure time
@@ -94,7 +96,7 @@ void test_course_retrieval(BSTNode* course_root, int num_courses) {
 
     clock_t end = clock();  // End the clock for retrieval time
     double time_taken = (double)(end - start) / CLOCKS_PER_SEC;
-    printf("Retrieved %d courses in %.2f seconds\n", num_courses, time_taken);
+    printf("BST: Retrieved %d courses in %.4f seconds\n", num_courses, time_taken);
 }
 
 int main() {
@@ -109,7 +111,6 @@ int main() {
     // Test retrieval performance
     test_student_retrieval(student_table, 10000);  // Test retrieval for 10,000 students
     test_course_retrieval(course_root, 100);       // Test retrieval for 100 courses
-    int var = scanf("");
 
     return 0;
 }

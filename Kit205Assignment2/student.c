@@ -6,7 +6,7 @@
 Student* create_student(int student_id, const char* name) {
     Student* new_student = (Student*)malloc(sizeof(Student));
     new_student->student_id = student_id;
-    strcpy(new_student->name, name);
+    strcpy_s(new_student->name, sizeof(new_student->name), name);  // This is safer
     new_student->enrolled_courses = NULL; // No courses enrolled initially
     return new_student;
 }
